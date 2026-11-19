@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>elevate . — Your IELTS Journey, With Direction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-cream: #FAF5F0;
+      --text-dark: #232030;
+      --text-muted: #767183;
+      --coral: #E68267;
+      --purple-primary: #5E4AE3;
+      --purple-dark: #4938C2;
+      --lime: #DDF774;
+      --white: #FFFFFF;
+      --border-light: rgba(35, 32, 48, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-cream);
+      background-image: radial-gradient(circle at 75% 28%, rgba(230, 130, 103, 0.12) 0%, rgba(250, 245, 240, 0) 55%);
+      color: var(--text-dark);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+    /* NAVBAR */
+    .navbar {
+      height: 76px;
+      border-bottom: 1px solid rgba(35, 32, 48, 0.06);
+      background: rgba(250, 245, 240, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+    }
+
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+      background: var(--purple-primary);
+      color: #fff;
+      border-radius: 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .logo-dot { color: var(--text-muted); font-weight: 600; }
+
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+      padding: 6px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .nav-link:hover, .nav-link.active { color: var(--text-dark); font-weight: 600; }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--purple-primary);
+      border-radius: 2px;
+    }
+
+    .mini-badge {
+      background: #EAE6FA;
+      color: var(--purple-primary);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 999px;
+    }
+
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+    .btn-mock-nav {
+      background: #FFFFFF;
+      border: 1px solid rgba(94, 74, 227, 0.25);
+      color: var(--purple-primary);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-mock-nav:hover { background: var(--purple-primary); color: #fff; }
+
+    .avatar-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(230, 130, 103, 0.25);
+      background: #F6E6DE;
+      color: #8A4B3A;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .avatar-btn:hover { transform: scale(1.06); box-shadow: 0 4px 12px rgba(230, 130, 103, 0.25); }
+
+    /* VIEWS */
+    .view { display: none; }
+    .view.active { display: block; }
+
+    /* HERO SECTION */
+    .hero-section { padding: 64px 0 56px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--purple-primary);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow-line { width: 24px; height: 2px; background: #D9CBBF; display: inline-block; }
+
+    .hero-title {
+      font-size: 68px;
+      line-height: 1.03;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      margin-bottom: 22px;
+    }
+
+    .title-dark { display: block; color: var(--text-dark); }
+    .title-coral { display: block; color: var(--coral); }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 470px;
+      line-height: 1.65;
+      margin-bottom: 34px;
+    }
+
+    .hero-cta-row { display: flex; align-items: center; gap: 24px; margin-bottom: 28px; }
+
+    .btn-primary {
+      background: var(--purple-primary);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 15px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 24px rgba(94, 74, 227, 0.25);
+      transition: transform 0.18s, background 0.18s;
+    }
+
+    .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      border: none;
+      color: var(--text-dark);
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 6px;
+    }
+
+    .btn-ghost:hover { color: var(--purple-primary); }
+
+    .hero-footnote { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #9A95A6; }
+    .footnote-dot { width: 7px; height: 7px; border-radius: 50%; background: #A9CBB7; }
+
+    /* PURPLE SCORE CARD */
+    .score-card-wrapper { position: relative; }
+
+    .score-card {
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(145deg, #6550EC 0%, #523FD4 100%);
+      border-radius: 26px;
+      padding: 32px 34px;
+      color: #fff;
+      box-shadow: 0 28px 60px rgba(82, 63, 212, 0.28);
+    }
+
+    .score-card-glow {
+      position: absolute;
+      bottom: -14px;
+      left: 16px;
+      right: 16px;
+      height: 40px;
+      background: rgba(94, 74, 227, 0.16);
+      border-radius: 24px;
+      z-index: 1;
+    }
+
+    .score-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+    .score-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.75); }
+
+    .status-badge {
+      background: var(--lime);
+      color: #1F2611;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #2C3A12; }
+
+    .score-main { display: flex; align-items: center; gap: 18px; margin-bottom: 26px; }
+    .score-number { font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+    .score-caption { font-size: 13px; color: rgba(255, 255, 255, 0.78); line-height: 1.4; }
+
+    .progress-wrapper { margin-bottom: 26px; }
+    .progress-track { width: 100%; height: 6px; background: rgba(255, 255, 255, 0.18); border-radius: 999px; overflow: hidden; margin-bottom: 10px; }
+    .progress-fill { height: 100%; background: var(--lime); border-radius: 999px; transition: width 0.5s ease; }
+    .progress-meta { display: flex; justify-content: space-between; font-size: 12px; color: rgba(255, 255, 255, 0.8); }
+
+    .score-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .stat-value { font-size: 24px; font-weight: 700; margin-bottom: 2px; }
+    .stat-label { font-size: 12px; color: rgba(255, 255, 255, 0.7); }
+
+    /* CHOOSE YOUR FOCUS */
+    .skills-section { padding: 36px 0 84px; }
+
+    .skills-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 32px;
+      gap: 24px;
+    }
+
+    .section-title { font-size: 38px; font-weight: 800; letter-spacing: -0.025em; color: var(--text-dark); }
+    .section-desc { max-width: 310px; font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    .skill-card {
+      background: #FFFFFF;
+      border-radius: 22px;
+      padding: 10px;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 10px 30px rgba(35, 32, 48, 0.03);
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skill-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(35, 32, 48, 0.08); }
+
+    .skill-card-banner {
+      height: 92px;
+      border-radius: 15px;
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .banner-purple { background: #EAE6FA; }
+    .banner-green  { background: #E3F0DD; }
+    .banner-coral  { background: #F8E5DF; }
+    .banner-blue   { background: #DFEEF3; }
+
+    .skill-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .icon-purple { background: #D7CEFA; color: #533ED6; }
+    .icon-green  { background: #CBE3C0; color: #366B2B; }
+    .icon-coral  { background: #F2CFC4; color: #B84D32; }
+    .icon-blue   { background: #C4E0EA; color: #2A687D; }
+
+    .skill-band-pill {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .skill-card-body { padding: 16px 10px 10px; flex: 1; display: flex; flex-direction: column; }
+    .skill-card-body h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .skill-card-body p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 18px; flex: 1; }
+
+    .skill-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid rgba(35, 32, 48, 0.06);
+      font-size: 12px;
+    }
+
+    .skill-meta { color: var(--text-muted); font-weight: 500; }
+    .skill-action { color: var(--purple-primary); font-weight: 700; }
+
+    /* SUBPAGES */
+    .subpage-section { padding: 56px 0 80px; }
+    .progress-overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
+
+    .white-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 28px;
+      border: 1px solid var(--border-light);
+    }
+
+    .white-card h3 { font-size: 18px; margin-bottom: 14px; }
+
+    .step-num {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--purple-primary);
+      background: #EAE6FA;
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    .skill-bar-row { margin-bottom: 18px; }
+    .skill-bar-header { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+    .skill-bar-bg { height: 8px; background: #F1EEF6; border-radius: 999px; overflow: hidden; }
+    .skill-bar-fill { height: 100%; background: var(--purple-primary); border-radius: 999px; }
+
+    .activity-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #F1EEF6;
+      font-size: 14px;
+    }
+    .activity-item:last-child { border-bottom: none; }
+
+    /* MODALS */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(25, 22, 36, 0.52);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 24px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px 32px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
+    }
+
+    .practice-box { max-width: 760px; }
+    .auth-box { max-width: 440px; }
+
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+    .modal-header-right { display: flex; align-items: center; gap: 10px; }
+
+    .timer-pill {
+      background: #F4F1F8;
+      color: var(--text-dark);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-urgent { background: #F8E5DF; color: #B84D32; }
+
+    .close-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: #F4F1F8;
+      color: var(--text-dark);
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* PRACTICE & AI FEEDBACK */
+    .passage-box {
+      background: #FAF8FC;
+      border: 1px solid #EAE6F2;
+      border-radius: 14px;
+      padding: 18px;
+      font-size: 14.5px;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .clickable-word {
+      cursor: pointer;
+      border-bottom: 1px dashed rgba(94, 74, 227, 0.45);
+      transition: background 0.15s;
+      padding: 0 2px;
+      border-radius: 4px;
+    }
+
+    .clickable-word:hover { background: #EAE6FA; color: var(--purple-primary); }
+
+    .vocab-popup-banner {
+      background: #EAE6FA;
+      color: var(--text-dark);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .question-block { margin-bottom: 18px; }
+    .question-block p { font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+
+    .option-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid #E5E1EE;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .option-label:hover { background: #F7F5FC; }
+
+    .essay-area {
+      width: 100%;
+      min-height: 165px;
+      padding: 14px;
+      border: 1px solid #DFDCE6;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.6;
+      resize: vertical;
+      margin-bottom: 12px;
+    }
+
+    .ai-feedback-card {
+      background: #F7F5FC;
+      border: 1px solid #DCD5F7;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 18px;
+    }
+
+    .ai-criteria-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 14px 0; }
+
+    .ai-criterion {
+      background: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+
+    .transcript-box {
+      background: #fff;
+      border: 1px solid #DFDCE6;
+      border-radius: 12px;
+      padding: 14px;
+      min-height: 80px;
+      font-size: 14px;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+
+    .speed-controls { display: flex; gap: 8px; margin-top: 10px; }
+
+    .speed-btn {
+      border: 1px solid #DFDCE6;
+      background: #fff;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .speed-btn.active { background: var(--purple-primary); color: #fff; border-color: var(--purple-primary); }
+
+    /* AUTH & FORMS */
+    .auth-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #F5F2F8;
+      padding: 4px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .auth-tab {
+      border: none;
+      background: transparent;
+      padding: 9px;
+      border-radius: 9px;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .auth-tab.active { background: #fff; color: var(--text-dark); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .input-field {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid #DFDCE6;
+      border-radius: 11px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .input-field:focus { border-color: var(--purple-primary); }
+    .full-width { width: 100%; justify-content: center; }
+
+    .profile-hero {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg-cream);
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .large-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #F6E6DE;
+      color: #8A4B3A;
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .muted-text { font-size: 13px; color: var(--text-muted); }
+    .modal-actions-row { display: flex; gap: 10px; }
+
+    .btn-outline {
+      border: 1px solid #DFDCE6;
+      background: #fff;
+      color: var(--text-dark);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .btn-link-danger {
+      background: none;
+      border: none;
+      color: #C94A4A;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .error-msg { color: #C94A4A; font-size: 13px; margin-bottom: 12px; }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--text-dark);
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 200;
+    }
+
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 50px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .progress-overview-grid, .how-grid, .vocab-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" onclick="navigateTo('study')">
+        <span class="logo-icon">e</span>
+        <span class="logo-text">elevate <span class="logo-dot">.</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a class="nav-link active" data-nav="study" onclick="navigateTo('study')">Study</a>
+        <a class="nav-link" data-nav="progress" onclick="navigateTo('progress')">My progress</a>
+        <a class="nav-link" data-nav="vocab" onclick="navigateTo('vocab')">Vocabulary <span id="vocabBadge" class="mini-badge">0</span></a>
+        <a class="nav-link" data-nav="how" onclick="navigateTo('how')">How it works</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn-mock-nav" onclick="openMockExam()">⏱ Mock Exam</button>
+        <button type="button" id="userAvatarBtn" class="avatar-btn" title="Account & Profile" onclick="openAuthModal()">JD</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN STUDY VIEW -->
+  <main id="view-study" class="view active">
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            YOUR IELTS JOURNEY, WITH DIRECTION
+          </div>
+          <h1 class="hero-title">
+            <span class="title-dark">Small steps.</span>
+            <span class="title-coral">Big score.</span>
+          </h1>
+          <p class="hero-subtitle">
+            A clearer way to prepare for IELTS. Build real skills, understand your progress, and walk into test day knowing what to expect.
+          </p>
+
+          <div class="hero-cta-row">
+            <button type="button" class="btn-primary" onclick="continueLearning()">
+              Continue learning <span>↗</span>
+            </button>
+            <button type="button" class="btn-ghost" onclick="openMockExam()">
+              Take timed mock test <span>⏱</span>
+            </button>
+          </div>
+
+          <div class="hero-footnote">
+            <span class="footnote-dot"></span>
+            A little progress every day adds up
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="score-card-wrapper">
+            <div class="score-card">
+              <div class="score-card-top">
+                <span class="score-card-label">YOUR CURRENT LEVEL</span>
+                <span id="statusBadge" class="status-badge">
+                  <span class="badge-dot"></span> ON TRACK
+                </span>
+              </div>
+
+              <div class="score-main">
+                <span id="currentBandDisplay" class="score-number">6.5</span>
+                <span class="score-caption">Estimated overall<br>band score</span>
+              </div>
+
+              <div class="progress-wrapper">
+                <div class="progress-track">
+                  <div id="goalProgressBar" class="progress-fill" style="width: 72%;"></div>
+                </div>
+                <div class="progress-meta">
+                  <span>Target: Band <strong id="targetBandDisplay">7.5</strong></span>
+                  <span id="goalPercentDisplay">72% of your goal</span>
+                </div>
+              </div>
+
+              <div class="score-stats-grid">
+                <div class="stat-item">
+                  <div id="streakDisplay" class="stat-value">18</div>
+                  <div class="stat-label">Days streak</div>
+                </div>
+                <div class="stat-item">
+                  <div id="studyTimeDisplay" class="stat-value">24h</div>
+                  <div class="stat-label">Study time</div>
+                </div>
+                <div class="stat-item">
+                  <div id="testsDoneDisplay" class="stat-value">12</div>
+                  <div class="stat-label">Tests done</div>
+                </div>
+              </div>
+            </div>
+            <div class="score-card-glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Choose Your Focus Section -->
+    <section id="skillsSection" class="skills-section">
+      <div class="container">
+        <div class="skills-header">
+          <div>
+            <div class="eyebrow">CHOOSE YOUR FOCUS</div>
+            <h2 class="section-title">Make every session count.</h2>
+          </div>
+          <p class="section-desc">
+            Four skills. One clear plan. Pick up where you left off or work on something new.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card" onclick="openPractice('listening')">
+            <div class="skill-card-banner banner-purple">
+              <div class="skill-icon icon-purple">♫</div>
+              <span class="skill-band-pill" id="band-listening">Band 6.5</span>
+            </div>
+            <div class="skill-card-body">
+              <h3>Listening</h3>
+              <p>Listen to a short passage with speed controls and answer IELTS questions.</p>
+              <div class="skill-footer">
+                <span class="skill-meta" id="meta-listening">3/5 modules</span>
+                <span class="skill-action">Start session →</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-card" onclick="openPractice('reading')">
+            <div class="skill-card-banner banner-green">
+              <div class="skill-icon icon-green">▤</div>
+              <span class="skill-band-pill" id="band-reading">Band 7.0</span>
+            </div>
+            <div class="skill-card-body">
+              <h3>Reading</h3>
+              <p>Read a timed passage, click any word to save vocabulary, and test comprehension.</p>
+              <div class="skill-footer">
+                <span class="skill-meta" id="meta-reading">4/5 modules</span>
+                <span class="skill-action">Start session →</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-card" onclick="openPractice('writing')">
+            <div class="skill-card-banner banner-coral">
+              <div class="skill-icon icon-coral">✎</div>
+              <span class="skill-band-pill" id="band-writing">Band 6.0</span>
+            </div>
+            <div class="skill-card-body">
+              <h3>Writing</h3>
+              <p>Write a timed Task 2 essay and get instant AI scoring across 4 IELTS criteria.</p>
+              <div class="skill-footer">
+                <span class="skill-meta" id="meta-writing">2/5 modules</span>
+                <span class="skill-action">Start session →</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-card" onclick="openPractice('speaking')">
+            <div class="skill-card-banner banner-blue">
+              <div class="skill-icon icon-blue">🎙</div>
+              <span class="skill-band-pill" id="band-speaking">Band 6.5</span>
+            </div>
+            <div class="skill-card-body">
+              <h3>Speaking</h3>
+              <p>Record your answer with live speech-to-text transcription and fluency analysis.</p>
+              <div class="skill-footer">
+                <span class="skill-meta" id="meta-speaking">3/5 modules</span>
+                <span class="skill-action">Start session →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MY PROGRESS VIEW -->
+  <main id="view-progress" class="view">
+    <section class="subpage-section">
+      <div class="container">
+        <div class="eyebrow">ANALYTICS & HISTORY</div>
+        <h2 class="section-title">Your IELTS Progress</h2>
+        <p class="hero-subtitle">Track how each skill contributes to your overall band score.</p>
+
+        <div class="progress-overview-grid">
+          <div class="white-card">
+            <h3>Skill Breakdown</h3>
+            <div id="skillBarsContainer" class="skill-bars-list"></div>
+          </div>
+
+          <div class="white-card">
+            <h3>Recent Practice Activity</h3>
+            <div id="activityHistoryList" class="activity-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- VOCABULARY BUILDER VIEW -->
+  <main id="view-vocab" class="view">
+    <section class="subpage-section">
+      <div class="container">
+        <div class="eyebrow">SAVED LEXICON</div>
+        <h2 class="section-title">Personal Vocabulary Deck</h2>
+        <p class="hero-subtitle">Click any unfamiliar word during Reading sessions to save it here with definitions.</p>
+        <div id="vocabListContainer" class="vocab-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- HOW IT WORKS VIEW -->
+  <main id="view-how" class="view">
+    <section class="subpage-section">
+      <div class="container">
+        <div class="eyebrow">METHODOLOGY</div>
+        <h2 class="section-title">How elevate works</h2>
+        <p class="hero-subtitle">Realistic exam timers combined with instant AI feedback on your Writing and Speaking.</p>
+
+        <div class="how-grid">
+          <div class="white-card">
+            <div class="step-num">01</div>
+            <h3>Timed Exam Simulations</h3>
+            <p>Practice under real exam time pressure with full Mock Tests covering Listening, Reading, and Writing back-to-back.</p>
+          </div>
+          <div class="white-card">
+            <div class="step-num">02</div>
+            <h3>Instant AI Rubric Evaluation</h3>
+            <p>Writing essays are scored across Task Response, Coherence, Lexical Resource, and Grammar with academic word suggestions.</p>
+          </div>
+          <div class="white-card">
+            <div class="step-num">03</div>
+            <h3>Live Speech Fluency Analysis</h3>
+            <p>Speaking sessions transcribe your voice in real time, measuring speaking pace (WPM) and filler words.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PRACTICE WORKSPACE MODAL -->
+  <div id="practiceModal" class="modal-overlay">
+    <div class="modal-box practice-box">
+      <div class="modal-header">
+        <div>
+          <span id="practiceTag" class="eyebrow" style="margin-bottom: 4px;">SKILL PRACTICE</span>
+          <h3 id="practiceTitle">Listening Practice</h3>
+        </div>
+        <div class="modal-header-right">
+          <div id="sessionTimerBox" class="timer-pill">⏱ <span id="sessionTimerDisplay">10:00</span></div>
+          <button type="button" class="close-btn" onclick="closePracticeModal()">✕</button>
+        </div>
+      </div>
+      <div id="practiceContent" class="practice-body"></div>
+    </div>
+  </div>
+
+  <!-- MOCK EXAM MODAL -->
+  <div id="mockModal" class="modal-overlay">
+    <div class="modal-box practice-box">
+      <div class="modal-header">
+        <div>
+          <span class="eyebrow" style="margin-bottom: 4px;">FULL SIMULATION</span>
+          <h3 id="mockStageTitle">IELTS Express Mock Test</h3>
+        </div>
+        <div class="modal-header-right">
+          <div class="timer-pill timer-urgent">⏱ <span id="mockTimerDisplay">25:00</span></div>
+          <button type="button" class="close-btn" onclick="closeMockModal()">✕</button>
+        </div>
+      </div>
+      <div id="mockBody" class="practice-body"></div>
+    </div>
+  </div>
+
+  <!-- AUTH / PROFILE MODAL -->
+  <div id="authModal" class="modal-overlay">
+    <div class="modal-box auth-box">
+      <div class="modal-header">
+        <div class="logo">
+          <span class="logo-icon">e</span>
+          <span class="logo-text">elevate <span class="logo-dot">.</span></span>
+        </div>
+        <button type="button" class="close-btn" onclick="closeAuthModal()">✕</button>
+      </div>
+
+      <div id="profilePanel">
+        <div class="profile-hero">
+          <div id="profileLargeAvatar" class="large-avatar">JD</div>
+          <div>
+            <h3 id="profileNameDisplay">Jordan Davis</h3>
+            <p id="profileEmailDisplay" class="muted-text">jordan.davis@example.com</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Target IELTS Band Score</label>
+          <select id="profileTargetSelect" class="input-field">
+            <option value="6.5">Band 6.5</option>
+            <option value="7.0">Band 7.0</option>
+            <option value="7.5" selected>Band 7.5</option>
+            <option value="8.0">Band 8.0</option>
+            <option value="8.5">Band 8.5</option>
+            <option value="9.0">Band 9.0</option>
+          </select>
+        </div>
+
+        <div class="modal-actions-row">
+          <button type="button" class="btn-primary" onclick="saveProfileChanges()">Save Changes</button>
+          <button type="button" class="btn-outline" onclick="switchAuthMode('register')">Register New Account</button>
+        </div>
+        <div style="margin-top: 12px; text-align: center;">
+          <button type="button" class="btn-link-danger" onclick="logoutUser()">Log out</button>
+        </div>
+      </div>
+
+      <div id="authFormPanel" style="display: none;">
+        <div class="auth-tabs">
+          <button type="button" id="tabLogin" class="auth-tab active" onclick="setAuthTab('login')">Sign In</button>
+          <button type="button" id="tabRegister" class="auth-tab" onclick="setAuthTab('register')">Create Account</button>
+        </div>
+
+        <form id="authForm" onsubmit="handleAuthSubmit(event)">
+          <div id="registerFields" style="display: none;">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="regName" class="input-field" placeholder="e.g. Alex Mercer" />
+            </div>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label>Current Level</label>
+                <select id="regCurrentBand" class="input-field">
+                  <option value="5.0">Band 5.0</option>
+                  <option value="5.5">Band 5.5</option>
+                  <option value="6.0" selected>Band 6.0</option>
+                  <option value="6.5">Band 6.5</option>
+                  <option value="7.0">Band 7.0</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Target Score</label>
+                <select id="regTargetBand" class="input-field">
+                  <option value="6.5">Band 6.5</option>
+                  <option value="7.0">Band 7.0</option>
+                  <option value="7.5" selected>Band 7.5</option>
+                  <option value="8.0">Band 8.0</option>
+                  <option value="8.5">Band 8.5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="authEmail" class="input-field" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="authPassword" class="input-field" placeholder="••••••••" required />
+          </div>
+
+          <div id="authError" class="error-msg"></div>
+
+          <button type="submit" id="authSubmitBtn" class="btn-primary full-width">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const DEFAULT_STATE = {
+      user: {
+        loggedIn: true,
+        name: "Jordan Davis",
+        email: "jordan.davis@elevate-ielts.com",
+        initials: "JD",
+        targetBand: 7.5
+      },
+      stats: { streak: 18, studyHours: 24, testsDone: 12 },
+      skills: {
+        listening: { band: 6.5, completed: 3, total: 5 },
+        reading:   { band: 7.0, completed: 4, total: 5 },
+        writing:   { band: 6.0, completed: 2, total: 5 },
+        speaking:  { band: 6.5, completed: 3, total: 5 }
+      },
+      vocabulary: [
+        { word: "biophilic", def: "Relating to an innate human affinity for the natural world.", example: "Biophilic architecture reduces office stress." },
+        { word: "microgrid", def: "A localized group of electricity sources that can operate independently.", example: "Community microgrids maintain power during outages." }
+      ],
+      history: [
+        { skill: "Reading", title: "Biophilic Architecture Passage", score: "Band 7.0", date: "Today" },
+        { skill: "Listening", title: "Renewable Microgrids Lecture", score: "Band 6.5", date: "Yesterday" }
+      ]
+    };
+
+    const DICTIONARY_HINTS = {
+      biophilic: "Relating to a close connection between humans and nature.",
+      incorporating: "Taking in or containing something as part of a whole.",
+      fatigue: "Extreme tiredness resulting from mental or physical exertion.",
+      reinforced: "Strengthened or supported with additional material.",
+      budgets: "Estimates of income and expenditure for a set period.",
+      urban: "In, relating to, or characteristic of a town or city."
+    };
+
+    let appState = loadState();
+    let authMode = "login";
+    let sessionTimerInterval = null;
+    let mockTimerInterval = null;
+    let audioSpeed = 1.0;
+
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let recognition = null;
+    let liveTranscript = "";
+    let speakingStartTime = null;
+
+    function cloneObj(obj) {
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    function loadState() {
+      try {
+        const saved = localStorage.getItem("elevate_ielts_v2");
+        if (saved) return JSON.parse(saved);
+      } catch (e) {}
+      return cloneObj(DEFAULT_STATE);
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem("elevate_ielts_v2", JSON.stringify(appState));
+      } catch (e) {}
+      renderDashboard();
+    }
+
+    function getInitials(name) {
+      return name.trim().split(/\s+/).map(p => p[0]).join("").toUpperCase().slice(0, 2) || "U";
+    }
+
+    function calculateOverallBand() {
+      const s = appState.skills;
+      const avg = (s.listening.band + s.reading.band + s.writing.band + s.speaking.band) / 4;
+      return (Math.round(avg * 2) / 2).toFixed(1);
+    }
+
+    function renderDashboard() {
+      const overall = parseFloat(calculateOverallBand());
+      const target = parseFloat(appState.user.targetBand);
+
+      document.getElementById("userAvatarBtn").textContent = appState.user.loggedIn ? appState.user.initials : "?";
+      document.getElementById("currentBandDisplay").textContent = overall.toFixed(1);
+      document.getElementById("targetBandDisplay").textContent = target.toFixed(1);
+
+      const baseline = 4.0;
+      let pct = Math.round(((overall - baseline) / (target - baseline)) * 100);
+      pct = Math.max(10, Math.min(100, pct));
+      document.getElementById("goalProgressBar").style.width = pct + "%";
+      document.getElementById("goalPercentDisplay").textContent = pct + "% of your goal";
+
+      document.getElementById("streakDisplay").textContent = appState.stats.streak;
+      document.getElementById("studyTimeDisplay").textContent = appState.stats.studyHours + "h";
+      document.getElementById("testsDoneDisplay").textContent = appState.stats.testsDone;
+      document.getElementById("vocabBadge").textContent = appState.vocabulary.length;
+
+      ["listening", "reading", "writing", "speaking"].forEach(skill => {
+        const data = appState.skills[skill];
+        document.getElementById("band-" + skill).textContent = "Band " + data.band.toFixed(1);
+        document.getElementById("meta-" + skill).textContent = data.completed + "/" + data.total + " modules";
+      });
+
+      const barsContainer = document.getElementById("skillBarsContainer");
+      barsContainer.innerHTML = ["listening", "reading", "writing", "speaking"].map(skill => {
+        const data = appState.skills[skill];
+        const widthPct = Math.round((data.band / 9.0) * 100);
+        return '<div class="skill-bar-row">' +
+          '<div class="skill-bar-header">' +
+            '<span style="text-transform: capitalize;">' + skill + '</span>' +
+            '<span>Band ' + data.band.toFixed(1) + ' / 9.0</span>' +
+          '</div>' +
+          '<div class="skill-bar-bg"><div class="skill-bar-fill" style="width: ' + widthPct + '%"></div></div>' +
+        '</div>';
+      }).join("");
+
+      document.getElementById("activityHistoryList").innerHTML = appState.history.map(item =>
+        '<div class="activity-item">' +
+          '<div><strong>' + item.skill + '</strong>: ' + item.title + '<div class="muted-text">' + item.date + '</div></div>' +
+          '<span class="skill-band-pill">' + item.score + '</span>' +
+        '</div>'
+      ).join("");
+
+      const vocabContainer = document.getElementById("vocabListContainer");
+      if (appState.vocabulary.length === 0) {
+        vocabContainer.innerHTML = '<div class="white-card"><p class="muted-text">No saved words yet. Click any highlighted word during a Reading session to save it.</p></div>';
+      } else {
+        vocabContainer.innerHTML = appState.vocabulary.map((v, idx) =>
+          '<div class="white-card">' +
+            '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">' +
+              '<h3 style="margin:0; color:var(--purple-primary);">' + v.word + '</h3>' +
+              '<button type="button" class="close-btn" style="width:28px;height:28px;font-size:12px;" onclick="removeVocab(' + idx + ')">✕</button>' +
+            '</div>' +
+            '<p style="font-size:14px; margin-bottom:8px;">' + v.def + '</p>' +
+            '<p class="muted-text" style="font-style:italic;">"' + v.example + '"</p>' +
+          '</div>'
+        ).join("");
+      }
+    }
+
+    function removeVocab(index) {
+      appState.vocabulary.splice(index, 1);
+      saveState();
+      showToast("Word removed from deck");
+    }
+
+    function navigateTo(viewName) {
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+      document.getElementById("view-" + viewName).classList.add("active");
+      document.querySelectorAll(".nav-link").forEach(link => {
+        link.classList.toggle("active", link.dataset.nav === viewName);
+      });
+    }
+
+    function continueLearning() {
+      const skills = Object.entries(appState.skills).sort((a, b) => a[1].band - b[1].band);
+      openPractice(skills[0][0]);
+    }
+
+    function startTimer(seconds, displayId, intervalRefSetter, onExpire) {
+      let remaining = seconds;
+      const updateDisplay = () => {
+        const mins = Math.floor(remaining / 60);
+        const secs = remaining % 60;
+        const el = document.getElementById(displayId);
+        if (el) el.textContent = String(mins).padStart(2, "0") + ":" + String(secs).padStart(2, "0");
+      };
+      updateDisplay();
+      const id = setInterval(() => {
+        remaining--;
+        updateDisplay();
+        if (remaining <= 0) {
+          clearInterval(id);
+          if (onExpire) onExpire();
+        }
+      }, 1000);
+      intervalRefSetter(id);
+    }
+
+    function openPractice(skill) {
+      clearInterval(sessionTimerInterval);
+      const modal = document.getElementById("practiceModal");
+      const titleEl = document.getElementById("practiceTitle");
+      const tagEl = document.getElementById("practiceTag");
+      const bodyEl = document.getElementById("practiceContent");
+
+      tagEl.textContent = skill.toUpperCase() + " SESSION";
+      modal.classList.add("open");
+
+      const durations = { listening: 600, reading: 1200, writing: 2400, speaking: 300 };
+      startTimer(durations[skill], "sessionTimerDisplay", id => sessionTimerInterval = id, () => {
+        showToast("Time is up! Submit your work.");
+      });
+
+      if (skill === "listening") {
+        titleEl.textContent = "Listening — Academic Lecture";
+        bodyEl.innerHTML =
+          '<div class="passage-box">' +
+            '<p style="margin-bottom: 12px;"><strong>Audio Player:</strong> Listen carefully to the lecture excerpt on renewable microgrids.</p>' +
+            '<div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">' +
+              '<button type="button" class="btn-primary" onclick="playListeningAudio()">▶ Play Audio</button>' +
+              '<button type="button" class="btn-outline" onclick="toggleTranscript()">Show / Hide Transcript</button>' +
+            '</div>' +
+            '<div class="speed-controls">' +
+              '<span class="muted-text" style="align-self:center;">Speed:</span>' +
+              '<button type="button" class="speed-btn" onclick="setAudioSpeed(0.8, this)">0.8x</button>' +
+              '<button type="button" class="speed-btn active" onclick="setAudioSpeed(1.0, this)">1.0x</button>' +
+              '<button type="button" class="speed-btn" onclick="setAudioSpeed(1.25, this)">1.25x</button>' +
+            '</div>' +
+            '<div id="listeningTranscript" style="display:none; margin-top:14px; padding-top:12px; border-top:1px solid #DFDCE6; font-size:13px; color:var(--text-muted);">' +
+              '"Unlike traditional centralized power plants, community microgrids allow neighborhoods to generate and store their own solar electricity, maintaining local power supply even during main grid outages."' +
+            '</div>' +
+          '</div>' +
+          '<div class="question-block">' +
+            '<p>1. What is the main advantage of community microgrids mentioned by the speaker?</p>' +
+            '<label class="option-label"><input type="radio" name="lq1" value="a"> They completely eliminate solar panel installation costs</label>' +
+            '<label class="option-label"><input type="radio" name="lq1" value="b"> They maintain local power supply during main grid outages</label>' +
+            '<label class="option-label"><input type="radio" name="lq1" value="c"> They only operate during winter months</label>' +
+          '</div>' +
+          '<button type="button" class="btn-primary" onclick="checkListening()">Submit Answer</button>';
+      } else if (skill === "reading") {
+        titleEl.textContent = "Reading — Interactive Vocabulary & Comprehension";
+        const rawText = "Recent urban studies indicate that incorporating natural greenery into high-rise office buildings reduces employee mental fatigue by up to 22%. However, structural engineers note that biophilic rooftop forests require reinforced load-bearing columns, increasing initial construction budgets by roughly 8%.";
+        const interactiveHtml = rawText.split(" ").map(token => {
+          const clean = token.toLowerCase().replace(/[^a-z]/g, "");
+          if (DICTIONARY_HINTS[clean]) {
+            return '<span class="clickable-word" onclick="inspectWord(\'' + clean + '\')">' + token + '</span>';
+          }
+          return token;
+        }).join(" ");
+
+        bodyEl.innerHTML =
+          '<div id="vocabInspector" class="vocab-popup-banner">' +
+            '<span>💡 <strong>Tip:</strong> Click any underlined word in the text below to see its meaning and save it to your Vocabulary deck.</span>' +
+          '</div>' +
+          '<div class="passage-box"><strong>Biophilic Architecture in Modern Cities</strong><br><br>' + interactiveHtml + '</div>' +
+          '<div class="question-block">' +
+            '<p>Statement: Adding greenery to high-rise offices lowers initial construction costs.</p>' +
+            '<label class="option-label"><input type="radio" name="rq1" value="true"> TRUE</label>' +
+            '<label class="option-label"><input type="radio" name="rq1" value="false"> FALSE</label>' +
+            '<label class="option-label"><input type="radio" name="rq1" value="ng"> NOT GIVEN</label>' +
+          '</div>' +
+          '<button type="button" class="btn-primary" onclick="checkReading()">Check Answer</button>';
+      } else if (skill === "writing") {
+        titleEl.textContent = "Writing — Task 2 Essay & AI Examiner";
+        bodyEl.innerHTML =
+          '<div class="passage-box">' +
+            '<strong>Prompt:</strong> Some people believe that international tourism brings economic benefits to local communities, while others argue it damages local culture and environments. Discuss both views and give your opinion.' +
+          '</div>' +
+          '<textarea id="writingInput" class="essay-area" placeholder="Write your academic essay here (try using linking words like However, Furthermore, In conclusion)..." oninput="updateWordCount()"></textarea>' +
+          '<div style="display:flex; justify-content:space-between; margin-bottom:14px; font-size:13px;">' +
+            '<span>Word count: <strong id="wordCountDisplay">0</strong> words</span>' +
+            '<span class="muted-text">Recommended: 150–250 words</span>' +
+          '</div>' +
+          '<div style="display:flex; gap:10px; flex-wrap:wrap;">' +
+            '<button type="button" class="btn-primary" onclick="evaluateEssayAI()">✨ Analyze with AI Examiner</button>' +
+            '<button type="button" id="saveWritingBtn" class="btn-outline" style="display:none;" onclick="completeEvaluatedWriting()">Save Band & Finish</button>' +
+          '</div>' +
+          '<div id="aiWritingResult"></div>';
+      } else if (skill === "speaking") {
+        titleEl.textContent = "Speaking — Live Speech-to-Text & Fluency";
+        liveTranscript = "";
+        bodyEl.innerHTML =
+          '<div class="passage-box">' +
+            '<strong>Part 2 Cue Card: Describe a skill you learned that helped you in your studies or work.</strong>' +
+            '<ul style="margin: 8px 0 0 20px; font-size:13.5px;">' +
+              '<li>What the skill is and when you learned it</li>' +
+              '<li>How you practiced it</li>' +
+              '<li>Why it was useful for your goals</li>' +
+            '</ul>' +
+          '</div>' +
+          '<div style="display:flex; gap:12px; align-items:center; margin-bottom:14px;">' +
+            '<button type="button" id="recordBtn" class="btn-primary" onclick="toggleRecording()">🎙 Start Speaking</button>' +
+            '<span id="recordStatus" class="muted-text">Click to record & transcribe your voice</span>' +
+          '</div>' +
+          '<div class="transcript-box" id="liveTranscriptBox">' +
+            '<span class="muted-text">Your live speech transcription will appear here as you speak...</span>' +
+          '</div>' +
+          '<audio id="playbackAudio" controls style="display:none; width:100%; margin-bottom:14px;"></audio>' +
+          '<div id="speakingAiFeedback"></div>' +
+          '<button type="button" class="btn-outline" onclick="submitSkillPractice(\'speaking\', true)">Finish Speaking Session</button>';
+      }
+    }
+
+    function checkListening() {
+      const checked = document.querySelector('input[name="lq1"]:checked');
+      submitSkillPractice("listening", checked && checked.value === "b");
+    }
+
+    function checkReading() {
+      const checked = document.querySelector('input[name="rq1"]:checked');
+      submitSkillPractice("reading", checked && checked.value === "false");
+    }
+
+    function closePracticeModal() {
+      clearInterval(sessionTimerInterval);
+      if (window.speechSynthesis) window.speechSynthesis.cancel();
+      if (recognition) { try { recognition.stop(); } catch (e) {} }
+      document.getElementById("practiceModal").classList.remove("open");
+    }
+
+    function setAudioSpeed(rate, btn) {
+      audioSpeed = rate;
+      document.querySelectorAll(".speed-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      showToast("Playback speed set to " + rate + "x");
+    }
+
+    function toggleTranscript() {
+      const el = document.getElementById("listeningTranscript");
+      el.style.display = el.style.display === "none" ? "block" : "none";
+    }
+
+    function playListeningAudio() {
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(
+          "Welcome to today's lecture on sustainable energy. Unlike traditional centralized power plants, community microgrids allow neighborhoods to generate and store their own solar electricity, maintaining local power supply even during main grid outages."
+        );
+        utter.lang = "en-US";
+        utter.rate = audioSpeed;
+        window.speechSynthesis.speak(utter);
+        showToast("Playing audio at " + audioSpeed + "x speed...");
+      } else {
+        showToast("Audio simulated: Microgrids maintain power during grid outages.");
+      }
+    }
+
+    function inspectWord(word) {
+      const def = DICTIONARY_HINTS[word] || "Academic vocabulary term.";
+      const inspector = document.getElementById("vocabInspector");
+      inspector.innerHTML =
+        '<div><strong style="text-transform:capitalize; color:var(--purple-primary);">' + word + '</strong>: ' + def + '</div>' +
+        '<button type="button" class="btn-primary" style="padding:7px 14px; font-size:12px;" onclick="saveWordToDeck(\'' + word + '\')">+ Save Word</button>';
+    }
+
+    function saveWordToDeck(word) {
+      const def = DICTIONARY_HINTS[word] || "Academic vocabulary term.";
+      if (!appState.vocabulary.some(v => v.word.toLowerCase() === word.toLowerCase())) {
+        appState.vocabulary.unshift({
+          word: word,
+          def: def,
+          example: "Saved from Biophilic Architecture reading passage."
+        });
+        saveState();
+        showToast('"' + word + '" added to your Vocabulary deck!');
+      } else {
+        showToast('"' + word + '" is already in your deck.');
+      }
+    }
+
+    let lastEvaluatedWritingBand = 6.5;
+
+    function updateWordCount() {
+      const text = document.getElementById("writingInput").value.trim();
+      const count = text ? text.split(/\s+/).length : 0;
+      document.getElementById("wordCountDisplay").textContent = count;
+    }
+
+    function evaluateEssayAI() {
+      const text = document.getElementById("writingInput").value.trim();
+      const words = text ? text.split(/\s+/) : [];
+      if (words.length < 20) {
+        showToast("Write at least 20 words for AI evaluation.");
+        return;
+      }
+
+      const lower = text.toLowerCase();
+      const connectors = ["however", "furthermore", "moreover", "therefore", "although", "consequently", "in conclusion", "on the other hand"];
+      const usedConnectors = connectors.filter(c => lower.includes(c));
+      const uniqueWords = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g, "")));
+      const lexicalDiversity = uniqueWords.size / words.length;
+
+      let taskScore = words.length >= 120 ? 7.5 : words.length >= 60 ? 6.5 : 6.0;
+      let coherenceScore = usedConnectors.length >= 2 ? 7.5 : usedConnectors.length === 1 ? 6.5 : 6.0;
+      let lexicalScore = lexicalDiversity > 0.65 ? 7.5 : 6.5;
+      let grammarScore = text.includes(",") && text.includes(".") ? 7.0 : 6.0;
+
+      const overall = (Math.round(((taskScore + coherenceScore + lexicalScore + grammarScore) / 4) * 2) / 2);
+      lastEvaluatedWritingBand = overall;
+
+      const tips = [];
+      if (usedConnectors.length < 2) tips.push("Add cohesive linking devices such as <em>Furthermore</em>, <em>However</em>, or <em>Consequently</em>.");
+      if (lower.includes("good") || lower.includes("bad") || lower.includes("big")) {
+        tips.push("Upgrade informal adjectives: replace <em>good/bad/big</em> with <em>beneficial, detrimental, substantial</em>.");
+      }
+      if (words.length < 100) tips.push("Expand your body paragraphs with a concrete real-world example to boost Task Response.");
+      if (tips.length === 0) tips.push("Strong academic register and cohesive paragraph flow!");
+
+      document.getElementById("aiWritingResult").innerHTML =
+        '<div class="ai-feedback-card">' +
+          '<div style="display:flex; justify-content:space-between; align-items:center;">' +
+            '<strong>AI Examiner Assessment</strong>' +
+            '<span class="status-badge">Estimated Band ' + overall.toFixed(1) + '</span>' +
+          '</div>' +
+          '<div class="ai-criteria-grid">' +
+            '<div class="ai-criterion"><span>Task Response</span><span>' + taskScore.toFixed(1) + '</span></div>' +
+            '<div class="ai-criterion"><span>Coherence & Cohesion</span><span>' + coherenceScore.toFixed(1) + '</span></div>' +
+            '<div class="ai-criterion"><span>Lexical Resource</span><span>' + lexicalScore.toFixed(1) + '</span></div>' +
+            '<div class="ai-criterion"><span>Grammatical Range</span><span>' + grammarScore.toFixed(1) + '</span></div>' +
+          '</div>' +
+          '<div style="font-size:13px; color:var(--text-dark);">' +
+            '<strong>Actionable Improvements:</strong>' +
+            '<ul style="margin:6px 0 0 18px;">' + tips.map(t => '<li>' + t + '</li>').join("") + '</ul>' +
+          '</div>' +
+        '</div>';
+      document.getElementById("saveWritingBtn").style.display = "inline-flex";
+    }
+
+    function completeEvaluatedWriting() {
+      const s = appState.skills.writing;
+      s.completed = Math.min(s.total, s.completed + 1);
+      s.band = lastEvaluatedWritingBand;
+      appState.stats.testsDone += 1;
+      appState.stats.studyHours += 1;
+      appState.history.unshift({
+        skill: "Writing",
+        title: "AI-Graded Task 2 Essay",
+        score: "Band " + s.band.toFixed(1),
+        date: "Just now"
+      });
+      saveState();
+      closePracticeModal();
+      showToast("Writing updated to Band " + s.band.toFixed(1) + "!");
+    }
+
+    async function toggleRecording() {
+      const btn = document.getElementById("recordBtn");
+      const status = document.getElementById("recordStatus");
+      const transcriptBox = document.getElementById("liveTranscriptBox");
+
+      if (!mediaRecorder || mediaRecorder.state === "inactive") {
+        liveTranscript = "";
+        speakingStartTime = Date.now();
+        transcriptBox.innerHTML = '<span class="muted-text">Listening... speak clearly into your microphone.</span>';
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+          recognition = new SpeechRecognition();
+          recognition.lang = "en-US";
+          recognition.continuous = true;
+          recognition.interimResults = true;
+          recognition.onresult = event => {
+            let text = "";
+            for (let i = 0; i < event.results.length; i++) {
+              text += event.results[i][0].transcript + " ";
+            }
+            liveTranscript = text.trim();
+            transcriptBox.textContent = liveTranscript || "Listening...";
+          };
+          try { recognition.start(); } catch (e) {}
+        }
+
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+          mediaRecorder = new MediaRecorder(stream);
+          audioChunks = [];
+          mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+          mediaRecorder.onstop = () => {
+            const blob = new Blob(audioChunks, { type: "audio/webm" });
+            const audioEl = document.getElementById("playbackAudio");
+            audioEl.src = URL.createObjectURL(blob);
+            audioEl.style.display = "block";
+            analyzeSpeakingFluency();
+          };
+          mediaRecorder.start();
+          btn.textContent = "⏹ Stop Recording";
+          status.textContent = "Recording & transcribing...";
+        } catch (err) {
+          status.textContent = "Microphone unavailable — using sample transcript.";
+          liveTranscript = "I learned data analysis using spreadsheets during my final university year, which helped me organize research efficiently.";
+          transcriptBox.textContent = liveTranscript;
+          analyzeSpeakingFluency();
+        }
+      } else {
+        mediaRecorder.stop();
+        if (recognition) { try { recognition.stop(); } catch (e) {} }
+        btn.textContent = "🎙 Record Again";
+        status.textContent = "Recording saved! Review your fluency analysis below.";
+      }
+    }
+
+    function analyzeSpeakingFluency() {
+      const durationSec = Math.max(5, Math.round((Date.now() - speakingStartTime) / 1000));
+      const words = liveTranscript ? liveTranscript.split(/\s+/) : [];
+      const wpm = Math.round((words.length / durationSec) * 60) || 115;
+      const fillers = words.filter(w => ["um", "uh", "like", "basically"].includes(w.toLowerCase())).length;
+
+      document.getElementById("speakingAiFeedback").innerHTML =
+        '<div class="ai-feedback-card" style="margin-bottom:14px;">' +
+          '<strong>Fluency & Pronunciation Metrics</strong>' +
+          '<div class="ai-criteria-grid">' +
+            '<div class="ai-criterion"><span>Speaking Pace</span><span>' + wpm + ' WPM</span></div>' +
+            '<div class="ai-criterion"><span>Filler Words</span><span>' + fillers + ' detected</span></div>' +
+          '</div>' +
+          '<p style="font-size:13px;">' + (wpm >= 100 && wpm <= 155 ? "Ideal natural pace for IELTS Speaking (110–150 WPM)." : "Try maintaining a steady, calm pace around 120–140 words per minute.") + '</p>' +
+        '</div>';
+    }
+
+    // FULL TIMED MOCK EXAM
+    let mockAnswers = {};
+
+    function openMockExam() {
+      clearInterval(mockTimerInterval);
+      mockAnswers = {};
+      document.getElementById("mockModal").classList.add("open");
+      startTimer(1500, "mockTimerDisplay", id => mockTimerInterval = id, () => {
+        finishMockExam();
+      });
+      renderMockStep(1);
+    }
+
+    function closeMockModal() {
+      clearInterval(mockTimerInterval);
+      document.getElementById("mockModal").classList.remove("open");
+    }
+
+    function renderMockStep(step) {
+      const title = document.getElementById("mockStageTitle");
+      const body = document.getElementById("mockBody");
+
+      if (step === 1) {
+        title.textContent = "Mock Exam — Part 1 of 3: Listening";
+        body.innerHTML =
+          '<div class="passage-box">' +
+            '<p style="margin-bottom:10px;">Listen to the campus orientation announcement and answer below.</p>' +
+            '<button type="button" class="btn-primary" onclick="playListeningAudio()">▶ Play Exam Audio</button>' +
+          '</div>' +
+          '<div class="question-block">' +
+            '<p>Q1. Microgrids are primarily praised for:</p>' +
+            '<label class="option-label"><input type="radio" name="m_l" value="correct"> Keeping local power running during main grid failures</label>' +
+            '<label class="option-label"><input type="radio" name="m_l" value="wrong"> Replacing all wind turbines nationwide</label>' +
+          '</div>' +
+          '<button type="button" class="btn-primary" onclick="nextMockStep2()">Next: Reading Section →</button>';
+      } else if (step === 2) {
+        title.textContent = "Mock Exam — Part 2 of 3: Academic Reading";
+        body.innerHTML =
+          '<div class="passage-box">' +
+            'Vertical farming inside urban warehouses uses 95% less water than conventional agriculture through closed-loop hydroponics, though LED lighting remains its highest operational expense.' +
+          '</div>' +
+          '<div class="question-block">' +
+            '<p>Q2. What is the biggest ongoing cost for vertical farms?</p>' +
+            '<label class="option-label"><input type="radio" name="m_r" value="wrong"> Water supply</label>' +
+            '<label class="option-label"><input type="radio" name="m_r" value="correct"> LED lighting</label>' +
+          '</div>' +
+          '<button type="button" class="btn-primary" onclick="nextMockStep3()">Next: Writing Task →</button>';
+      } else if (step === 3) {
+        title.textContent = "Mock Exam — Part 3 of 3: Express Writing";
+        body.innerHTML =
+          '<div class="passage-box">' +
+            '<strong>Task:</strong> Write a short paragraph (at least 25 words) explaining whether public transport should be free in major cities.' +
+          '</div>' +
+          '<textarea id="mockWritingText" class="essay-area" placeholder="Type your exam response..."></textarea>' +
+          '<button type="button" class="btn-primary" onclick="finishMockExam()">Finish & Calculate Exam Band Score</button>';
+      }
+    }
+
+    function nextMockStep2() {
+      const checked = document.querySelector('input[name="m_l"]:checked');
+      mockAnswers.l = checked && checked.value === "correct";
+      renderMockStep(2);
+    }
+
+    function nextMockStep3() {
+      const checked = document.querySelector('input[name="m_r"]:checked');
+      mockAnswers.r = checked && checked.value === "correct";
+      renderMockStep(3);
+    }
+
+    function finishMockExam() {
+      clearInterval(mockTimerInterval);
+      const wEl = document.getElementById("mockWritingText");
+      const wText = wEl ? wEl.value.trim() : "";
+      const wCount = wText ? wText.split(/\s+/).length : 0;
+
+      const lBand = mockAnswers.l ? 7.5 : 5.5;
+      const rBand = mockAnswers.r ? 7.5 : 5.5;
+      const wBand = wCount >= 25 ? 7.0 : 5.5;
+      const examOverall = (Math.round(((lBand + rBand + wBand) / 3) * 2) / 2);
+
+      appState.skills.listening.band = lBand;
+      appState.skills.reading.band = rBand;
+      appState.skills.writing.band = wBand;
+      appState.stats.testsDone += 1;
+      appState.stats.studyHours += 1;
+      appState.history.unshift({
+        skill: "Mock Exam",
+        title: "Full Timed IELTS Simulation",
+        score: "Band " + examOverall.toFixed(1),
+        date: "Just now"
+      });
+      saveState();
+
+      document.getElementById("mockStageTitle").textContent = "Mock Exam Official Result";
+      document.getElementById("mockBody").innerHTML =
+        '<div style="text-align:center; padding: 16px 0;">' +
+          '<div class="eyebrow">OVERALL MOCK SCORE</div>' +
+          '<div style="font-size:64px; font-weight:800; color:var(--purple-primary); line-height:1.1; margin-bottom:14px;">' + examOverall.toFixed(1) + '</div>' +
+          '<div class="ai-criteria-grid" style="max-width:420px; margin: 0 auto 20px;">' +
+            '<div class="ai-criterion"><span>Listening</span><span>Band ' + lBand.toFixed(1) + '</span></div>' +
+            '<div class="ai-criterion"><span>Reading</span><span>Band ' + rBand.toFixed(1) + '</span></div>' +
+            '<div class="ai-criterion"><span>Writing</span><span>Band ' + wBand.toFixed(1) + '</span></div>' +
+            '<div class="ai-criterion"><span>Status</span><span>Updated on Dashboard</span></div>' +
+          '</div>' +
+          '<button type="button" class="btn-primary" onclick="closeMockModal()">Return to Dashboard</button>' +
+        '</div>';
+    }
+
+    function submitSkillPractice(skill, isCorrect) {
+      if (!isCorrect) {
+        showToast("Not quite — review the passage and try again!");
+        return;
+      }
+      const s = appState.skills[skill];
+      s.completed = Math.min(s.total, s.completed + 1);
+      s.band = Math.min(9.0, +(s.band + 0.5).toFixed(1));
+      appState.stats.testsDone += 1;
+      appState.stats.studyHours += 1;
+      appState.history.unshift({
+        skill: skill.charAt(0).toUpperCase() + skill.slice(1),
+        title: "Completed Timed Module",
+        score: "Band " + s.band.toFixed(1),
+        date: "Just now"
+      });
+      saveState();
+      closePracticeModal();
+      showToast("Great job! " + skill.toUpperCase() + " improved to Band " + s.band.toFixed(1));
+    }
+
+    // AUTH & PROFILE
+    function openAuthModal() {
+      document.getElementById("authModal").classList.add("open");
+      if (appState.user.loggedIn) {
+        document.getElementById("profilePanel").style.display = "block";
+        document.getElementById("authFormPanel").style.display = "none";
+        document.getElementById("profileLargeAvatar").textContent = appState.user.initials;
+        document.getElementById("profileNameDisplay").textContent = appState.user.name;
+        document.getElementById("profileEmailDisplay").textContent = appState.user.email;
+        document.getElementById("profileTargetSelect").value = appState.user.targetBand.toFixed(1);
+      } else {
+        switchAuthMode("login");
+      }
+    }
+
+    function closeAuthModal() { document.getElementById("authModal").classList.remove("open"); }
+
+    function switchAuthMode(mode) {
+      document.getElementById("profilePanel").style.display = "none";
+      document.getElementById("authFormPanel").style.display = "block";
+      setAuthTab(mode);
+    }
+
+    function setAuthTab(tab) {
+      authMode = tab;
+      document.getElementById("tabLogin").classList.toggle("active", tab === "login");
+      document.getElementById("tabRegister").classList.toggle("active", tab === "register");
+      document.getElementById("registerFields").style.display = tab === "register" ? "block" : "none";
+      document.getElementById("authSubmitBtn").textContent = tab === "register" ? "Create Account" : "Sign In";
+      document.getElementById("authError").textContent = "";
+    }
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById("authEmail").value.trim();
+      const password = document.getElementById("authPassword").value.trim();
+      const errorEl = document.getElementById("authError");
+
+      if (!email || password.length < 4) {
+        errorEl.textContent = "Please enter a valid email and password (min 4 characters).";
+        return;
+      }
+
+      let usersDb = {};
+      try { usersDb = JSON.parse(localStorage.getItem("elevate_users_db") || "{}"); } catch (err) {}
+
+      if (authMode === "register") {
+        const name = document.getElementById("regName").value.trim() || "Student";
+        const startBand = parseFloat(document.getElementById("regCurrentBand").value);
+        const targetBand = parseFloat(document.getElementById("regTargetBand").value);
+        const newUser = { name: name, email: email, password: password, initials: getInitials(name), targetBand: targetBand };
+
+        usersDb[email] = newUser;
+        try { localStorage.setItem("elevate_users_db", JSON.stringify(usersDb)); } catch (err) {}
+
+        appState.user = Object.assign({}, newUser, { loggedIn: true });
+        appState.skills = {
+          listening: { band: startBand, completed: 0, total: 5 },
+          reading:   { band: startBand, completed: 0, total: 5 },
+          writing:   { band: startBand, completed: 0, total: 5 },
+          speaking:  { band: startBand, completed: 0, total: 5 }
+        };
+        appState.stats = { streak: 1, studyHours: 0, testsDone: 0 };
+        appState.history = [{ skill: "Account", title: "Joined elevate IELTS", score: "Band " + startBand.toFixed(1), date: "Just now" }];
+        saveState();
+        closeAuthModal();
+        showToast("Welcome to elevate, " + name + "!");
+      } else {
+        const existing = usersDb[email];
+        if (existing && existing.password === password) {
+          appState.user = Object.assign({}, existing, { loggedIn: true });
+          saveState();
+          closeAuthModal();
+          showToast("Welcome back, " + existing.name + "!");
+        } else if (email === DEFAULT_STATE.user.email) {
+          appState.user = Object.assign({}, DEFAULT_STATE.user, { loggedIn: true });
+          saveState();
+          closeAuthModal();
+          showToast("Signed in as Jordan Davis");
+        } else {
+          errorEl.textContent = "Account not found or wrong password. Try creating a new account!";
+        }
+      }
+    }
+
+    function saveProfileChanges() {
+      const newTarget = parseFloat(document.getElementById("profileTargetSelect").value);
+      appState.user.targetBand = newTarget;
+      saveState();
+      closeAuthModal();
+      showToast("Target updated to Band " + newTarget.toFixed(1));
+    }
+
+    function logoutUser() {
+      appState.user.loggedIn = false;
+      saveState();
+      switchAuthMode("login");
+      showToast("Logged out");
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 3200);
+    }
+
+    renderDashboard();
+  </script>
+</body>
+</html>
